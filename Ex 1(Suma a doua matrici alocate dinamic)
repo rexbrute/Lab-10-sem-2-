@@ -1,0 +1,46 @@
+void citire(int **a,int n,int m)
+{
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+            printf("tab[%d][%d]=",i,j);
+            scanf("%d",&a[i][j]);
+        }
+    }
+}
+void afisare(int **a,int n,int m)
+{
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+            printf("%d ",a[i][j]);
+        printf("\n");
+    }
+}
+int main()
+{
+    int **a,**b,**c,i,j,n,m;
+    a = malloc(n * sizeof(int *));
+    b = malloc(n * sizeof(int *));
+    c = malloc(n * sizeof(int *));
+    printf("linii:");
+    scanf("%d",&n);
+    printf("coloane:");
+    scanf("%d",&m);
+    for (i = 0; i < n; i++)
+    {
+        a[i] = calloc(m, sizeof(int));
+        b[i] = calloc(m, sizeof(int));
+        c[i] = calloc(m, sizeof(int));
+    }
+    citire(a,n,m);
+    citire(b,n,m);
+    for(i=0; i<n; i++)
+    {
+        for(j=0; j<m; j++)
+            c[i][j]=a[i][j]+b[i][j];
+    }
+    afisare(c,n,m);
+    return 0;
+}
